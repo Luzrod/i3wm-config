@@ -128,7 +128,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock 
-bindsym $mod+Shift+x exec i3lock -i Images/blue-screen-of-death-wallpaper-hd-10-full-wallpaperiz.jpg -p default -n
+bindsym $mod+Shift+x exec i3lock --color 475263
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sensei, you pressed the exit shortcut. Do you really want to leave me ?' -b 'Yes leave' 'i3-msg exit'"
