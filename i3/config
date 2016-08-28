@@ -86,15 +86,16 @@ bindsym $mod+q focus parent
 #bindsym $mod+c focus child
 
 # Workspace set 
-set $WS1 " Chromium"
+set $WS1 " Firefox"
 set $WS2 " Steam"
 set $WS3 " Steam Message" 
 set $WS4 " Skype"
 set $WS5 " Spotify"
 set $WS6 " Virtual Machine"
 set $WS7 " Files"
-set $WS8 " Text" 
+set $WS8 " Coding&Text" 
 set $WS9 " Terminals"
+set $WS10 " TOR"
 
 # Switch to Workspace
 bindsym $mod+1 workspace $WS1
@@ -106,7 +107,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $WS10
 
 # Move focused container to Workspace
 bindsym $mod+Shift+1 move container to workspace $WS1
@@ -118,7 +119,7 @@ bindsym $mod+Shift+6 move container to workspace $WS6
 bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $WS10
 
 
 # Reload the configuration file
@@ -152,17 +153,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
+set $bg-color 	              #2f343f
 set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
+set $text-color               #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 	
-# Window colors            border                         background                 text                    indicator
-client.focused          $bg-color                   $bg-color                      #FF0000                    #00ff00
-client.unfocused        $inactive-bg-color          $inactive-bg-color             #FF0000                    #00ff00
-client.focused_inactive $inactive-bg-color          $inactive-bg-color             #FF0000                    #00ff00
-client.urgent           $urgent-bg-color            $urgent-bg-color               #FF0000                    #00ff00
+# Window colors                                                                                    
+client.focused           $bg-color               $bg-color                 #FF0000            #00ff00
+client.unfocused         $inactive-bg-color      $inactive-bg-color        #FF0000            #00ff00
+client.focused_inactive  $inactive-bg-color      $inactive-bg-color        #FF0000            #00ff00
+client.urgent            $urgent-bg-color        $urgent-bg-color          #FF0000            #00ff00
 
 # Hide windows bar
 hide_edge_borders both
@@ -231,5 +232,3 @@ bar {
 exec_always feh --bg-scale Images/i3wallpaper/1469573033296.jpg #For the Wallpaper
 exec --no-startup-id compton -f #Transparency
 exec_always redshift #For not burn my eyes
-
-
