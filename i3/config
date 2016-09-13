@@ -86,16 +86,16 @@ bindsym $mod+q focus parent
 #bindsym $mod+c focus child
 
 # Workspace set 
-set $WS1 "1: "
-set $WS2 "2: "
-set $WS3 "3: " 
-set $WS4 "4: "
-set $WS5 "5: "
-set $WS6 "6: "
-set $WS7 "7: "
-set $WS8 "8: " 
-set $WS9 "9: "
-set $WS10 "10: "
+set $WS1 "1:  "
+set $WS2 "2:  "
+set $WS3 "3:  " 
+set $WS4 "4: "
+set $WS5 "5:  "
+set $WS6 "6:  "
+set $WS7 "7:  "
+set $WS8 "8:  " 
+set $WS9 "9:  "
+set $WS10 "10:   "
 
 # Switch to Workspace
 bindsym $mod+1 workspace $WS1
@@ -170,7 +170,7 @@ for_window [class="^.*"] border pixel 0
 
 # Windows gaps
 gaps inner 50
-gaps outer 50
+gaps outer 60
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -187,7 +187,7 @@ mode "$mode_gaps" {
 mode "$mode_gaps_inner" {
         bindsym q  gaps inner current plus 5
         bindsym s gaps inner current minus 5
-        bindsym d     gaps inner current set 0
+        bindsym d gaps inner current set 0
 
         bindsym $mod+q gaps inner all plus 5
         bindsym $mod+s gaps inner all minus 5
@@ -197,13 +197,13 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym q gaps outer current plus 5
-        bindsym s gaps outer current minus 5
-        bindsym d gaps outer current set 0
+        bindsym f gaps outer current plus 5
+        bindsym g gaps outer current minus 5
+        bindsym h gaps outer current set 0
 
-        bindsym $mod+q gaps outer all plus 5
-        bindsym $mod+s gaps outer all minus 5
-        bindsym $mod+d gaps outer all set 0
+        bindsym $mod+f gaps outer all plus 5
+        bindsym $mod+g gaps outer all minus 5
+        bindsym $mod+h gaps outer all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -213,21 +213,20 @@ mode "$mode_gaps_outer" {
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position bottom
-        font pango:System San Francisco Display, Awesome 9
+        position top
+        font pango: Ubuntu , Awesome 9
         workspace_buttons YES
         colors {
-                background $00000
+                background $bg-color
 	    	separator #757575
-		#                                  border                 background           text
-		focused_workspace  $00000                 $00000                  $text-color
-		inactive_workspace  $00000                 $00000                  $inactive-text-color
-		urgent_workspace    $urgent-bg-color   $urgent-bg-color    $text-color
- 
+		#                   border                 background             text
+		focused_workspace   $bg-color              $bg-color              $text-color
+		inactive_workspace  $inactive-bg-color     $inactive-bg-color     $inactive-text-color
+		urgent_workspace    $urgent-bg-color       $urgent-bg-color       $text-color
    }
      
 }
 
 # Exec at the startup
-exec_always feh --bg-fill Images/Wall2/1470734499234.jpg #For the Wallpaper
+exec_always feh --bg-fill Images/Wallpapers/1471946730475.png #For the Wallpaper
 exec --no-startup-id compton -f #Transparency
