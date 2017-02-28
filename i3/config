@@ -1,39 +1,24 @@
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+#####################
+# Luzrod's i3 config#
+# Twitter : lu7rod  #
+# Github : Luzrod   #
+#####################
 set $mod Mod1
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:System San Francisco Display 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:System San Francisco Display 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+# Font
+font pango:System monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xterm
 
 # Kill focused window
 bindsym $mod+Shift+a kill
 
-# Start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Helvetica 18"
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Start rofi (A program launcher)
+bindsym $mod+d exec dmenu_run
 
 # Change focus
 bindsym $mod+j focus left
@@ -86,16 +71,16 @@ bindsym $mod+q focus parent
 #bindsym $mod+c focus child
 
 # Workspace set 
-set $WS1 "1:  "
-set $WS2 "2:  "
-set $WS3 "3:  " 
-set $WS4 "4: "
-set $WS5 "5:  "
-set $WS6 "6:  "
-set $WS7 "7:  "
-set $WS8 "8:  " 
-set $WS9 "9:  "
-set $WS10 "10:   "
+set $WS1 "  I  "
+set $WS2 "  II  "
+set $WS3 "  III  " 
+set $WS4 "  IV  "
+set $WS5 "  V  "
+set $WS6 "  VI  "
+set $WS7 "  VII  "
+set $WS8 "  VIII  " 
+set $WS9 "  IX  "
+set $WS10 "  X  "
 
 # Switch to Workspace
 bindsym $mod+1 workspace $WS1
@@ -120,6 +105,11 @@ bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
+
+# Terminal gaps
+workspace $WS10 gaps inner 130
+workspace $WS10 gaps outer 140
+
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -149,28 +139,28 @@ mode "resize" {
     bindsym Escape mode "default"
 
 }
-# Resize
+
 bindsym $mod+r mode "resize"
 
-set $bg-color 	              #2f343f
+set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
-set $text-color               #f3f4f5
+set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 	
-# Window colors                                                                                 
-client.focused               $bg-color                   $bg-color                       #FF0000                           #00ff00
+# Window colors            border                  background                text                              indicator
+client.focused             $bg-color               $bg-color                 #FF0000                           #00ff00
 client.unfocused           $inactive-bg-color      $inactive-bg-color        #FF0000                           #00ff00
-client.focused_inactive $inactive-bg-color      $inactive-bg-color       #FF0000                           #00ff00
-client.urgent                  $urgent-bg-color        $urgent-bg-color          #FF0000                          #00ff00
+client.focused_inactive    $inactive-bg-color      $inactive-bg-color        #FF0000                           #00ff00
+client.urgent              $urgent-bg-color        $urgent-bg-color          #FF0000                           #00ff00
 
 # Hide windows bar
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
 
 # Windows gaps
-gaps inner 50
-gaps outer 60
+gaps inner 15
+gaps outer 30
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -185,25 +175,25 @@ mode "$mode_gaps" {
 }
 
 mode "$mode_gaps_inner" {
-        bindsym q  gaps inner current plus 5
-        bindsym s gaps inner current minus 5
-        bindsym d gaps inner current set 0
+        bindsym e gaps inner current plus 5
+        bindsym r gaps inner current minus 5
+        bindsym t gaps inner current set 0
 
-        bindsym $mod+q gaps inner all plus 5
-        bindsym $mod+s gaps inner all minus 5
-        bindsym $mod+d gaps inner all set 0
+        bindsym $mod+e gaps inner all plus 5
+        bindsym $mod+r gaps inner all minus 5
+        bindsym $mod+t gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym f gaps outer current plus 5
-        bindsym g gaps outer current minus 5
-        bindsym h gaps outer current set 0
+        bindsym z gaps outer current plus 5
+        bindsym s gaps outer current minus 5
+        bindsym x gaps outer current set 0
 
-        bindsym $mod+f gaps outer all plus 5
-        bindsym $mod+g gaps outer all minus 5
-        bindsym $mod+h gaps outer all set 0
+        bindsym $mod+z gaps outer all plus 5
+        bindsym $mod+s gaps outer all minus 5
+        bindsym $mod+x gaps outer all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -212,21 +202,21 @@ mode "$mode_gaps_outer" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+       
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        font xft: monospace 8 , FontAwesome 9
         position top
-        font pango: Ubuntu , Awesome 9
-        workspace_buttons YES
+        height 30
         colors {
-                background $bg-color
+                background #151515
 	    	separator #757575
-		#                   border                 background             text
-		focused_workspace   $bg-color              $bg-color              $text-color
-		inactive_workspace  $inactive-bg-color     $inactive-bg-color     $inactive-text-color
-		urgent_workspace    $urgent-bg-color       $urgent-bg-color       $text-color
-   }
-     
-}
+		#                     border                background           text
+		focused_workspace     #151515               #151515              #FFFFFF
+		inactive_workspace    #151515               #151515              $inactive-text-color
+                urgent_workspace      $urgent-bg-color      $urgent-bg-color     $text-color
 
+      }
+
+}
 # Exec at the startup
-exec_always feh --bg-fill Images/Wallpapers/1471946730475.png #For the Wallpaper
-exec --no-startup-id compton -f #Transparency
+exec_always feh --bg-fill /home/quentin/Images/r1irDcz.png
