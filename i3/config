@@ -1,12 +1,12 @@
-#####################
-# Luzrod's i3 config#
-# Twitter : lu7rod  #
-# Github : Luzrod   #
-#####################
+######################
+# Luzrod's i3 config #
+# Twitter : lu7rod   #
+# Github : Luzrod    #
+######################
 set $mod Mod1
 
 # Font
-font pango:System monospace 8
+font pango:System Monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -18,7 +18,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+a kill
 
 # Start rofi (A program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -b
 
 # Change focus
 bindsym $mod+j focus left
@@ -118,7 +118,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock 
-bindsym $mod+Shift+x exec i3lock --color 475263
+bindsym $mod+Shift+x exec i3lock --color=2b2b2b --show-failed-attempts
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sensei, you pressed the exit shortcut. Do you really want to leave me ?' -b 'Yes leave' 'i3-msg exit'"
@@ -203,8 +203,8 @@ mode "$mode_gaps_outer" {
 # finds out, if available)
 bar {
        
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        font xft: monospace 8 , FontAwesome 9
+        status_command i3status -c ~/.config/i3/i3status.conf
+        font xft: Monospace 8 , FontAwesome 9
         position top
         height 30
         colors {
@@ -219,4 +219,5 @@ bar {
 
 }
 # Exec at the startup
-exec_always feh --bg-fill /home/quentin/Images/r1irDcz.png
+exec_always feh --bg-fill /home/quentin/Images/simpledesktops.com.jpe
+exec_always compton -f --blur-background --inactive-opacity=0.77 --backend glx --vsync opengl-swc --menu-opacity=0.8
