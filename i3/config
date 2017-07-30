@@ -1,8 +1,8 @@
-######################
-# Luzrod's i3 config #
-# Twitter : lu7rod   #
-# Github : Luzrod    #
-######################
+#########################
+# Luzrod's i3 config    #
+# Discord : Luzrod#7969 #
+# Github : Luzrod       #
+#########################
 set $mod Mod1
 
 # Font
@@ -205,7 +205,7 @@ bar {
        
         status_command i3status -c ~/.config/i3/i3status.conf
         font xft: Monospace 8 , FontAwesome 9
-        position top
+        position bottom
         height 30
         colors {
                 background #151515
@@ -219,5 +219,5 @@ bar {
 
 }
 # Exec at the startup
-exec_always feh --bg-fill /home/quentin/Images/simpledesktops.com.jpe
+exec_always feh --bg-fill /home/Quentin/Images/NuFocOY.png
 exec_always compton -f --blur-background --inactive-opacity=0.77 --backend glx --vsync opengl-swc --menu-opacity=0.8
