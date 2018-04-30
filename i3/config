@@ -69,18 +69,18 @@ bindsym $mod+q focus parent
 
 # Focus the child container
 #bindsym $mod+c focus child
-
-# Workspace set 
-set $WS1 "  I  "
-set $WS2 "  II  "
-set $WS3 "  III  " 
-set $WS4 "  IV  "
-set $WS5 "  V  "
-set $WS6 "  VI  "
-set $WS7 "  VII  "
-set $WS8 "  VIII  " 
-set $WS9 "  IX  "
-set $WS10 "  X  "
+Here a capture with red bar, pixilarized font on the bar, and strange red shadows
+# Workspace set
+set $WS1 ""
+set $WS2 ""
+set $WS3 ""
+set $WS4 ""
+set $WS5 ""
+set $WS6 ""
+set $WS7 ""
+set $WS8 ""
+set $WS9 ""
+set $WS10 ""
 
 # Switch to Workspace
 bindsym $mod+1 workspace $WS1
@@ -117,12 +117,12 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Lock 
+# Lock
 bindsym $mod+Shift+x exec i3lock --color=2b2b2b --show-failed-attempts
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sensei, you pressed the exit shortcut. Do you really want to leave me ?' -b 'Yes leave' 'i3-msg exit'"
-
+Here a capture with red bar, pixilarized font on the bar, and strange red shadows
 # resize window
 mode "resize" {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -142,17 +142,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-	
+
+
 # Window colors            border                  background                text                              indicator
 client.focused             $bg-color               $bg-color                 #FF0000                           #00ff00
 client.unfocused           $inactive-bg-color      $inactive-bg-color        #FF0000                           #00ff00
 client.focused_inactive    $inactive-bg-color      $inactive-bg-color        #FF0000                           #00ff00
-client.urgent              $urgent-bg-color        $urgent-bg-color          #FF0000                           #00ff00
+client.urgent              $urgent-bg-color        $urgent-bg-color          #FF0000
 
 # Hide windows bar
 hide_edge_borders both
@@ -161,7 +157,7 @@ for_window [class="^.*"] border pixel 0
 # Windows gaps
 gaps inner 15
 gaps outer 30
-
+Here a capture with red bar, pixilarized font on the bar, and strange red shadows
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -176,7 +172,7 @@ mode "$mode_gaps" {
 
 mode "$mode_gaps_inner" {
         bindsym e gaps inner current plus 5
-        bindsym r gaps inner current minus 5
+        bindsym  r gaps inner current minus 5
         bindsym t gaps inner current set 0
 
         bindsym $mod+e gaps inner all plus 5
@@ -202,22 +198,21 @@ mode "$mode_gaps_outer" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-       
+
         status_command i3status -c ~/.config/i3/i3status.conf
-        font xft: Monospace 8 , FontAwesome 9
+        font xft: Liberation Sans 8 , FontAwesome 10
         position bottom
         height 30
         colors {
-                background #151515
+        background #151515
 	    	separator #757575
 		#                     border                background           text
 		focused_workspace     #151515               #151515              #FFFFFF
 		inactive_workspace    #151515               #151515              $inactive-text-color
-                urgent_workspace      $urgent-bg-color      $urgent-bg-color     $text-color
+    urgent_workspace      $urgent-bg-color      $urgent-bg-color     $text-color
 
       }
 
 }
 # Exec at the startup
-exec_always feh --bg-fill /home/Quentin/Images/NuFocOY.png
-exec_always compton -f --blur-background --inactive-opacity=0.77 --backend glx --vsync opengl-swc --menu-opacity=0.8
+exec_always feh --bg-fill /home/quentin/Images/Wallpaper/octocat.jpg
